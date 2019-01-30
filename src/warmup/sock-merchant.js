@@ -6,7 +6,7 @@ function sockMerchant(n, arr) {
 
     ar.forEach(color => {
         if (colorCount[color] != null) {
-            colorCount[color] = colorCount[color] + 1;
+            colorCount[color] += 1;
         } else {
             colorCount[color] = 1;
         }
@@ -17,7 +17,7 @@ function sockMerchant(n, arr) {
     for(const key in colorCount) {
         let count = colorCount[key];
         let colorPairs = count/2 >> 0;
-        pairs = pairs + colorPairs;
+        pairs += colorPairs;
     }
 
     return pairs;
