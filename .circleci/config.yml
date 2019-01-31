@@ -13,7 +13,6 @@ jobs:
     working_directory: .
 
     steps:
-    steps:
       - checkout
       - run: npm install
       - run: mkdir ~/junit
