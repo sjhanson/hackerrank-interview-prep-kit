@@ -10,12 +10,19 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: ~/
+    working_directory: .
 
     steps:
+    steps:
       - checkout
-
       - run: npm install
-        
-      # run tests!
-      - run: npm test
+      - run: mkdir ~/junit
+      - run:
+          command: npm test --reporter mocha-junit-reporter
+          environment:
+            MOCHA_FILE: ~/junit/test-results.xml
+          when: always
+      - store_test_results:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit  
