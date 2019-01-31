@@ -1,0 +1,6 @@
+container:
+  image: node:latest
+
+test_task:
+  run_mocha_tests:
+  script: npm test
