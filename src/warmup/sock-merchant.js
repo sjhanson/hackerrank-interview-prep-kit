@@ -1,30 +1,23 @@
-'use strict';
+module.exports = {
+    sockMerchant(n, ar) {
+        let colorCount = {};
 
-// Complete the sockMerchant function below.
-function sockMerchant(n, arr) {
-    let colorCount = {};
+        ar.forEach(color => {
+            if (colorCount[color] != null) {
+                colorCount[color] += 1;
+            } else {
+                colorCount[color] = 1;
+            }
+        });
 
-    ar.forEach(color => {
-        if (colorCount[color] != null) {
-            colorCount[color] += 1;
-        } else {
-            colorCount[color] = 1;
+        let pairs = 0;
+
+        for(const key in colorCount) {
+            let count = colorCount[key];
+            let colorPairs = count/2 >> 0;
+            pairs += colorPairs;
         }
-    });
 
-    let pairs = 0;
-
-    for(const key in colorCount) {
-        let count = colorCount[key];
-        let colorPairs = count/2 >> 0;
-        pairs += colorPairs;
+        return pairs;
     }
-
-    return pairs;
 }
-
-let n = 9;
-let ar = [10,20,20,10,10,30,50,10,20];
-
-const result = sockMerchant(n, ar);
-console.log('Result: ', result);
