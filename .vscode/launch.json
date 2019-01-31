@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha Tests",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "args": [
+              "--timeout",
+              "10000",
+              "${workspaceRoot}/test/warmup/*.spec.js"
+            ],
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}
