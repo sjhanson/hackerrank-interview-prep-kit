@@ -12,12 +12,11 @@ jobs:
 
     steps:
       - checkout
-      - run: sudo npm install -g mocha
       - run: npm install
       - run: npm install mocha-junit-reporter # just for CircleCI
       - run: mkdir ~/junit
       - run:
-          command: mocha test --reporter mocha-junit-reporter
+          command: ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter
           environment:
             MOCHA_FILE: ~/junit/test-results.xml
           when: always
