@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - checkout
-      - run: npm install -g mocha
+      - run: sudo npm install -g mocha
       - run: npm install
       - run: npm install mocha-junit-reporter # just for CircleCI
       - run: mkdir ~/junit
