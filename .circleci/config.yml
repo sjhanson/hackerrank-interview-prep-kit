@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node
+
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm install mocha-junit-reporter # just for CircleCI
+      - run: mkdir ~/junit
+      - run: mkdir ~/junit/mocha
+      - run:
+          command: ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter test --reporter-options mochaFile=~/junit/mocha/results.xml
+          when: always
+      - store_test_results:
+          path: ~/junit/mocha
+      - store_artifacts:
+          path: ~/junit/mocha

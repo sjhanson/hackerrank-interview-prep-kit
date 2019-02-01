@@ -4,7 +4,7 @@
   "description": "workspace for hackerrank code problems",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha ./test/warmup"
+    "test": "./node_modules/mocha/bin/mocha test"
   },
   "author": "Stephen J. Hanson",
   "license": "ISC",
