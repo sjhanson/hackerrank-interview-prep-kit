@@ -19,7 +19,7 @@ jobs:
       - run:
           command: ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter
           environment:
-            MOCHA_FILE: ~/junit/mocha/results.xml
+            MOCHA_FILE: .~/junit/mocha/results.xml
           when: always
       - store_test_results:
           path: ~/junit/mocha
