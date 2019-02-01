@@ -4,11 +4,8 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
+        environment:
+          MOCHA_FILE: .~/junit/mocha/results.xml
 
     steps:
       - checkout
@@ -18,8 +15,8 @@ jobs:
       - run: mkdir ~/junit/mocha
       - run:
           command: ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter
-          environment:
-            MOCHA_FILE: .~/junit/mocha/results.xml
+          # environment:
+          #   MOCHA_FILE: .~/junit/mocha/results.xml
           when: always
       - store_test_results:
           path: ~/junit/mocha
