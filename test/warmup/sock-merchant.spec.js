@@ -41,7 +41,7 @@ testCase('Sock Merchant', function() {
             let ar = [10,20,30,40,10,40];
 
             const result = sm.sockMerchant(n, ar);
-            assert.equal(result, 2);
+            assert.equal(result, 3);
         });
     });
 });
