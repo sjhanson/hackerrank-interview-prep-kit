@@ -4,8 +4,6 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node
-        environment:
-          MOCHA_FILE: .~/junit/mocha/results.xml
 
     steps:
       - checkout
@@ -14,9 +12,7 @@ jobs:
       - run: mkdir ~/junit
       - run: mkdir ~/junit/mocha
       - run:
-          command: ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter
-          # environment:
-          #   MOCHA_FILE: .~/junit/mocha/results.xml
+          command: ./node_modules/mocha/bin/mocha test --reporter mocha-junit-reporter test --reporter-options mochaFile=~/junit/mocha/results.xml
           when: always
       - store_test_results:
           path: ~/junit/mocha
