@@ -9,7 +9,7 @@
             "args": [
               "--timeout",
               "10000",
-              "${workspaceRoot}/test/warmup/*.spec.js"
+              "${workspaceRoot}/test/arrays/*.spec.js"
             ],
             "internalConsoleOptions": "openOnSessionStart"
         }
